@@ -2,17 +2,6 @@
   <router-view />
 </template>
 
-<script lang="ts" setup>
-import { onMounted } from "vue";
-
-onMounted(() => {
-  const app = document.querySelector("#app");
-  setTimeout(() => {
-    app?.classList.add("visible");
-  }, 250);
-});
-</script>
-
 <style>
 #app {
   opacity: 0;

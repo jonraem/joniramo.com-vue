@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <img
+      @load="fadeIn"
       class="home-profile"
       alt="Image of Joni"
       src="../assets/circle_joni.png"
@@ -20,7 +21,12 @@ import SocialLinks from "../components/SocialLinks.vue";
     SocialLinks,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  fadeIn() {
+    const app = document.querySelector('#app');
+    app?.classList.add('visible')
+  }
+}
 </script>
 
 <style>
