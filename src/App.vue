@@ -1,30 +1,66 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view />
 </template>
 
+<script lang="ts" setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  const app = document.querySelector("#app");
+  setTimeout(() => {
+    app?.classList.add("visible");
+  }, 250);
+});
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  opacity: 0;
+  margin-top: 15vh;
+  font-family: "PT Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  line-height: 1.25em;
 }
 
-#nav {
-  padding: 30px;
+#app.visible {
+  animation: fadeIn 1s;
+  opacity: 1;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+a {
+  transition: color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+a,
+a:active {
+  color: #ff407b;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #ff407b;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
