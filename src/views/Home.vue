@@ -23,8 +23,8 @@ import SocialLinks from "../components/SocialLinks.vue";
 })
 export default class Home extends Vue {
   fadeIn() {
-    const app = document.querySelector('#app');
-    app?.classList.add('visible')
+    const app = document.querySelector("#app");
+    app?.classList.add("visible");
   }
 }
 </script>
