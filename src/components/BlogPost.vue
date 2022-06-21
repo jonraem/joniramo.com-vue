@@ -6,7 +6,8 @@
     <div class="loading" v-if="loading">Loading...</div>
 
     <div v-if="error" class="error">
-      {{ error }}
+      <!-- {{ error }} -->
+      There doesn't seem to be anything here 🤔
     </div>
 
     <div v-if="post" class="content">

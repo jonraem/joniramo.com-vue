@@ -5,7 +5,8 @@
     <div class="posts">
       <div class="loading" v-if="loading">Loading...</div>
       <div v-if="error" class="error">
-        {{ error }}
+        <!-- {{ error }} -->
+        There doesn't seem to be anything here 🤔
       </div>
       <div class="post-container">
         <div v-for="post in posts" class="post-item" :key="post._id">
