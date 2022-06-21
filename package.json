@@ -15,15 +15,21 @@
   ],
   "main": "index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "yarn serve",
+    "serve": "vue-cli-service serve --open --host localhost",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@sanity/client": "^3.3.2",
+    "@sanity/image-url": "^1.0.1",
     "core-js": "^3.22.3",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "sanity-blocks-vue-component": "^1.0.1",
+    "simple-syntax-highlighter": "^2.2.0",
     "vue": "^3.2.33",
-    "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.14",
     "vuex": "^4.0.2"
   },
