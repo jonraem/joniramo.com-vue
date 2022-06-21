@@ -9,24 +9,13 @@
     <h1>Joni Rämö</h1>
     <p>Hello, my name is Joni. I'm a web developer.</p>
     <SocialLinks />
+    <router-link to="/blog">Blog</router-link>
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
+<script setup lang="ts">
 import SocialLinks from "../components/SocialLinks.vue";
-
-@Options({
-  components: {
-    SocialLinks,
-  },
-})
-export default class Home extends Vue {
-  fadeIn() {
-    const app = document.querySelector("#app");
-    app?.classList.add("visible");
-  }
-}
+import { fadeIn } from "../utils/animations";
 </script>
 
 <style>

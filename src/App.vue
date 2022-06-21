@@ -10,7 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  line-height: 1.25em;
+  line-height: 1.5em;
 }
 
 #app.visible {
@@ -19,8 +19,9 @@
 }
 
 a {
-  transition: color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+  transition: 0.2s color ease-in-out;
+  transition: 0.2s background ease-in-out;
 }
 
 a,
@@ -30,7 +31,7 @@ a:active {
 
 a:hover {
   color: #fff;
-  background-color: #ff407b;
+  background: #ff407b;
 }
 
 h1,
@@ -41,6 +42,7 @@ h5 {
   font-family: "Inter", sans-serif;
   font-weight: 900;
   letter-spacing: 0.2em;
+  line-height: 1.25em;
   text-transform: uppercase;
 }
 
