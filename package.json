@@ -1,14 +1,14 @@
 {
-  "name": "joniramo.com-2021",
+  "name": "joniramo.com-vue",
   "version": "1.0.0",
-  "description": "joniramo.com (2021)",
+  "description": "joniramo.com (vue)",
   "author": "Joni Rämö <joni.ramo.91@gmail.com>",
-  "homepage": "https://github.com/jonraem/joniramo.com-2021#readme",
+  "homepage": "https://github.com/jonraem/joniramo.com-vue#readme",
   "private": true,
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonraem/joniramo.com-2021.git"
+    "url": "git+https://github.com/jonraem/joniramo.com-vue.git"
   },
   "keywords": [
     "vue"
