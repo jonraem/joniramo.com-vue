@@ -32,7 +32,10 @@ import type { Ref } from "vue";
 import sanity from "../client";
 import type { Post } from "../types";
 import { fadeIn } from "../utils/animations";
-import { getDateStringFromPublishedAt } from "../utils/dates";
+import {
+  getDateStringFromPublishedAt,
+  sortAscendingByPublishedAt,
+} from "../utils/dates";
 
 const loading = ref(false);
 const error: Ref<string | null> = ref(null);
@@ -50,7 +53,7 @@ function fetchData() {
   sanity.fetch(query).then(
     (data) => {
       loading.value = false;
-      posts.value = data;
+      posts.value = data.sort(sortAscendingByPublishedAt);
     },
     (err) => {
       error.value = JSON.stringify(err);
