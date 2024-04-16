@@ -15,7 +15,7 @@
         >
       </li>
       <li>
-        <a href="mailto:joni.ramo.91@gmail.com">Email</a>
+        <a href="mailto:joni.ramo.91+hello@gmail.com">Email</a>
       </li>
       <li></li>
     </ul>
