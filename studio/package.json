@@ -15,14 +15,14 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/code-input": "^4.1.1",
-    "@sanity/eslint-config-studio": "^3.0.1",
-    "@sanity/vision": "^3.18.1",
-    "eslint": "^8.52.0",
+    "@sanity/code-input": "^4.1.4",
+    "@sanity/eslint-config-studio": "^4.0.0",
+    "@sanity/vision": "^3.60.0",
+    "eslint": "^9.12.0",
     "prop-types": "^15.8",
-    "react": "^18.2",
-    "react-dom": "^18.2",
-    "sanity": "^3.18.1",
+    "react": "^18.3",
+    "react-dom": "^18.3",
+    "sanity": "^3.60.0",
     "styled-components": "^6"
   },
   "repository": {
