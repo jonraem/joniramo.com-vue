@@ -2,9 +2,9 @@
   <div class="home">
     <img
       @load="fadeIn"
-      class="home-profile"
+      class="profile-image"
       alt="Image of Joni"
-      src="../assets/circle_joni.png"
+      src="../assets/jr_logo.svg"
     />
     <h1>Joni Rämö</h1>
     <p>Hello, my name is Joni. I'm a web developer.</p>
@@ -24,9 +24,9 @@ import { fadeIn } from "../utils/animations";
   margin: 0 auto;
 }
 
-.home-profile {
-  width: 125px;
-  height: 125px;
+.profile-image {
+  width: 75px;
+  height: 75px;
   margin: 0 auto;
   display: block;
 }
