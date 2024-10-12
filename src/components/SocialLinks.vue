@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .social-links ul {
   list-style: none;
   padding: 0;

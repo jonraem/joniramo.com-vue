@@ -12,7 +12,7 @@
 
     <div v-if="post" class="content">
       <h1>{{ post.title }}</h1>
-      <img v-if="post.image" :src="imageUrlFor(post.image).width(480).url()" />
+      <img v-if="post.image" :src="getImageUrl(post.image).width(480).url()" />
 
       <h6>Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}</h6>
       <SanityBlocks :blocks="blocks" :serializers="serializers" />
@@ -54,9 +54,8 @@ const query = `*[slug.current == $slug] {
 }[0]
 `;
 
-const imageBuilder = imageUrlBuilder(sanity);
-function imageUrlFor(source: any) {
-  return imageBuilder.image(source);
+function getImageUrl(source: any) {
+  return imageUrlBuilder(sanity).image(source);
 }
 
 const serializers = {
@@ -72,7 +71,7 @@ const serializers = {
       setup(props) {
         return () =>
           h("img", {
-            src: imageUrlFor(props.asset).width(480).url(),
+            src: getImageUrl(props.asset).width(480).url(),
           });
       },
     }),
