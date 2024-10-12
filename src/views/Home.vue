@@ -7,7 +7,11 @@
       src="../assets/jr_logo.svg"
     />
     <h1>Joni Rämö</h1>
-    <p>Hello, my name is Joni. I'm a web developer.</p>
+    <p>
+      Experienced software developer with more than
+      {{ yearsOfExperience }} years of experience developing tailored web and
+      mobile applications, primarily using JavaScript/TypeScript.
+    </p>
     <SocialLinks />
     <router-link to="/blog">Blog</router-link>
   </div>
@@ -16,11 +20,13 @@
 <script setup lang="ts">
 import SocialLinks from "../components/SocialLinks.vue";
 import { fadeIn } from "../utils/animations";
+
+const yearsOfExperience = new Date().getUTCFullYear() - 2017;
 </script>
 
-<style>
+<style scoped>
 .home {
-  width: 500px;
+  width: 575px;
   margin: 0 auto;
 }
 
@@ -29,6 +35,10 @@ import { fadeIn } from "../utils/animations";
   height: 75px;
   margin: 0 auto;
   display: block;
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
