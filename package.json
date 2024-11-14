@@ -22,13 +22,13 @@
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore"
   },
   "dependencies": {
+    "@portabletext/vue": "^1.0.11",
     "@sanity/client": "^6.22.1",
     "@sanity/image-url": "^1.0.2",
     "core-js": "^3.38.1",
+    "highlight.js": "^11.10.0",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
-    "sanity-blocks-vue-component": "^1.0.1",
-    "simple-syntax-highlighter": "^3.0.10",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5",
     "vuex": "^4.1.0"

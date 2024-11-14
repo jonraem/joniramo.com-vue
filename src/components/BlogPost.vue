@@ -12,27 +12,31 @@
 
     <div v-if="post" class="content">
       <h1>{{ post.title }}</h1>
-      <img v-if="post.image" :src="getImageUrl(post.image).width(480).url()" />
+      <img
+        alt="Irrelevant header image for blog post"
+        v-if="post.image"
+        :src="getImageUrl(post.image).width(480).url()"
+      />
 
       <h6>Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}</h6>
-      <SanityBlocks :blocks="blocks" :serializers="serializers" />
+      <PortableText :value="blocks" :components="components" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityBlocks } from "sanity-blocks-vue-component";
-import SshPre from "simple-syntax-highlighter";
-import "simple-syntax-highlighter/dist/sshpre.css";
-import { defineComponent, h, ref } from "vue";
+import { PortableText, PortableTextComponents } from "@portabletext/vue";
+import hljs from "highlight.js";
+import "highlight.js/styles/monokai-sublime.css";
+import { h, ref } from "vue";
 import type { Ref } from "vue";
 import { useRoute } from "vue-router";
 
 import sanity from "../client";
-import type { Post } from "../types";
 import { fadeIn } from "../utils/animations";
 import { getDateStringFromPublishedAt } from "../utils/dates";
+import type { Post } from "../types";
 
 const loading = ref(false);
 const error: Ref<string | null> = ref(null);
@@ -58,25 +62,32 @@ function getImageUrl(source: any) {
   return imageUrlBuilder(sanity).image(source);
 }
 
-const serializers = {
+interface CodeNode {
+  code: string;
+  language?: string;
+}
+
+interface ImageNode {
+  asset: { _ref: string; _type: string };
+  alt?: string;
+}
+
+const components: PortableTextComponents = {
   types: {
-    code: defineComponent({
-      props: ["code"],
-      setup(props) {
-        return () => h(SshPre, { dark: true }, () => [props.code]);
-      },
-    }),
-    image: defineComponent({
-      props: ["asset"],
-      setup(props) {
-        return () =>
-          h("img", {
-            src: getImageUrl(props.asset).width(480).url(),
-          });
-      },
-    }),
+    code: ({ value }: { value: CodeNode }) => {
+      const highlightedCode = hljs.highlightAuto(value.code).value;
+
+      return h("pre", { class: "hljs", style: "padding: 1rem;" }, [
+        h("code", { innerHTML: highlightedCode }),
+      ]);
+    },
+    image: ({ value }: { value: ImageNode }) =>
+      h("img", {
+        src: value.asset ? getImageUrl(value.asset).width(480).url() : "",
+        alt: value.alt || "Somewhat relevant blog post image",
+      }),
   },
-} as any;
+};
 
 function fetchData() {
   const route = useRoute();
