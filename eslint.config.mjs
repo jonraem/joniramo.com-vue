@@ -3,6 +3,9 @@ import prettierConfig from "@vue/eslint-config-prettier";
 import tsEslint from "typescript-eslint";
 
 export default tsEslint.config(
+  {
+    ignores: ["studio/.sanity/", "**/eslint.config.mjs", "**/*.d.ts"],
+  },
   eslintJs.configs.recommended,
   tsEslint.configs.recommended,
   prettierConfig,
@@ -13,5 +16,5 @@ export default tsEslint.config(
       "@typescript-eslint/no-explicit-any": "off",
       "vue/multi-word-component-names": "off",
     },
-  },
+  }
 );

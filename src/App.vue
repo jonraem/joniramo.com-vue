@@ -50,6 +50,7 @@ h5 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
