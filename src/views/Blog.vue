@@ -68,7 +68,7 @@ fadeIn();
 
 <style scoped>
 .blog {
-  width: 500px;
+  max-width: 45rem;
   margin: 0 auto;
   text-align: left;
 }

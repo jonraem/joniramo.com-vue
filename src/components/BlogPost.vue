@@ -1,8 +1,9 @@
 <template>
   <div class="blog-post">
-    <router-link to="/blog" style="align-self: flex-start">{{
-      "<< go back"
-    }}</router-link>
+    <router-link to="/blog" style="align-self: flex-start">
+      {{ "<< go back" }}
+    </router-link>
+
     <div class="loading" v-if="loading">Loading...</div>
 
     <div v-if="error" class="error">
@@ -111,6 +112,10 @@ fadeIn();
 </script>
 
 <style scoped>
+.loading {
+  margin-top: 2rem;
+}
+
 .blog-post {
   text-align: left;
   display: flex;
