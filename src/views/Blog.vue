@@ -3,11 +3,11 @@
     <router-link to="/">{{ "<< go back" }}</router-link>
     <h1>Blog</h1>
     <div class="posts">
-      <span class="loading" v-if="loading">Loading...</span>
-      <span v-if="error" class="error">
+      <p class="loading" v-if="loading">Loading...</p>
+      <p v-if="error" class="error">
         <!-- {{ error }} -->
         There doesn't seem to be anything here 🤔
-      </span>
+      </p>
       <div class="post-container">
         <div v-for="post in posts" class="post-item" :key="post._id">
           <h2>

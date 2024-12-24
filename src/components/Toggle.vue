@@ -49,8 +49,8 @@ const model = defineModel();
   width: 20px;
   left: 4px;
   bottom: 4px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 body.light .slider:before {

@@ -38,7 +38,6 @@ body.light {
   background-color: var(--background-light);
 
   p,
-  span,
   h1,
   h2,
   h3,
@@ -67,7 +66,6 @@ body.dark {
   background-color: var(--background-dark);
 
   p,
-  span,
   h1,
   h2,
   h3,
