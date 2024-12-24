@@ -1,10 +1,6 @@
 <template>
   <div class="home">
-    <img
-      class="profile-image"
-      alt="Image of Joni"
-      src="../assets/jr_logo.svg"
-    />
+    <Logo />
     <h1>Joni Rämö</h1>
     <p>
       Experienced software developer with more than
@@ -17,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import Logo from "../components/Logo.vue";
 import SocialLinks from "../components/SocialLinks.vue";
 
 const yearsOfExperience = new Date().getUTCFullYear() - 2017;
@@ -26,13 +23,6 @@ const yearsOfExperience = new Date().getUTCFullYear() - 2017;
 .home {
   width: 575px;
   margin: 0 auto;
-}
-
-.profile-image {
-  width: 75px;
-  height: 75px;
-  margin: 0 auto;
-  display: block;
 }
 
 p {

@@ -52,6 +52,10 @@ body.light {
     color: var(--background-light);
     background: var(--highlight-light);
   }
+
+  .logo path {
+    fill: var(--highlight-light);
+  }
 }
 
 body.dark {
@@ -75,5 +79,9 @@ body.dark {
   a:hover {
     color: var(--background-dark);
     background: var(--highlight-dark);
+  }
+
+  .logo path {
+    fill: var(--highlight-dark);
   }
 }
