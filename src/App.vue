@@ -1,6 +1,8 @@
 <template>
   <Toggle v-model="isDarkTheme" />
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -24,19 +26,8 @@ watch(isDarkTheme, (newValue) => {
 </script>
 
 <style>
-#app {
-  padding-top: 15vh;
-  font-family: "PT Mono", monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  line-height: 1.5em;
-}
-
-.toggle {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
+main {
+  padding: 20vh 1rem 0;
 }
 
 @keyframes fadeIn {

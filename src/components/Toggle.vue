@@ -18,8 +18,9 @@ const model = defineModel();
 
 <style>
 .toggle {
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
   width: 52px;
   height: 28px;
 }

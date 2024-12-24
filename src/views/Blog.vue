@@ -15,9 +15,9 @@
               {{ post.title }}
             </router-link>
           </h2>
-          <h6>
+          <p class="tagline">
             Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}
-          </h6>
+          </p>
           <hr />
         </div>
       </div>
@@ -83,8 +83,10 @@ fadeIn();
   box-sizing: border-box;
 }
 
-h6 {
+.tagline {
+  font-size: 0.8rem;
   color: var(--meta-light);
+  margin: 0 0 1rem;
 }
 
 @media only screen and (max-width: 768px) {

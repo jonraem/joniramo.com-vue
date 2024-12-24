@@ -19,7 +19,9 @@
         :src="getImageUrl(post.image).width(480).url()"
       />
 
-      <h6>Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}</h6>
+      <p class="tagline">
+        Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}
+      </p>
       <PortableText :value="blocks" :components="components" />
     </div>
   </div>
@@ -120,12 +122,13 @@ fadeIn();
   text-align: left;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 10rem;
   max-width: 45em;
-  margin-bottom: 10em;
 }
 
-h6 {
-  color: #aaa;
+.tagline {
+  font-size: 0.8rem;
+  color: var(--meta-light);
+  margin: 0 0 1rem;
 }
 </style>
