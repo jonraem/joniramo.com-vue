@@ -9,9 +9,12 @@ body {
   --meta-light: #aaa;
   --meta-dark: #aaa;
   --faded-light: #d0d0d0;
-  --faded-dark: #3f3f3f;
+  --faded-dark: #484848;
 
- transition: .4s background-color;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: 0.4s background-color;
 }
 
 /* Global styles */

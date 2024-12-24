@@ -25,7 +25,7 @@ watch(isDarkTheme, (newValue) => {
 
 <style>
 #app {
-  margin-top: 15vh;
+  padding-top: 15vh;
   font-family: "PT Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
