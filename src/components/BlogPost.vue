@@ -4,12 +4,12 @@
       {{ "<< go back" }}
     </router-link>
 
-    <div class="loading" v-if="loading">Loading...</div>
+    <span class="loading" v-if="loading">Loading...</span>
 
-    <div v-if="error" class="error">
+    <span v-if="error" class="error">
       <!-- {{ error }} -->
       There doesn't seem to be anything here 🤔
-    </div>
+    </span>
 
     <div v-if="post" class="content">
       <h1>{{ post.title }}</h1>

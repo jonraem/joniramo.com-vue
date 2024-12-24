@@ -8,6 +8,10 @@ body {
   --highlight-dark: #1af1ff;
   --meta-light: #aaa;
   --meta-dark: #aaa;
+  --faded-light: #d0d0d0;
+  --faded-dark: #3f3f3f;
+
+ transition: .4s background-color;
 }
 
 /* Global styles */
@@ -34,6 +38,7 @@ body.light {
   background-color: var(--background-light);
 
   p,
+  span,
   h1,
   h2,
   h3,
@@ -62,6 +67,7 @@ body.dark {
   background-color: var(--background-dark);
 
   p,
+  span,
   h1,
   h2,
   h3,

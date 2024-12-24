@@ -1,11 +1,16 @@
 <template>
   <label class="toggle">
     <input type="checkbox" v-model="model" />
-    <span class="slider round"></span>
+    <span class="slider round">
+      <ToggleIconLight v-if="!model" />
+      <ToggleIconDark v-if="model" />
+    </span>
   </label>
 </template>
 
 <script setup lang="ts">
+import ToggleIconLight from "./ToggleIconLight.vue";
+import ToggleIconDark from "./ToggleIconDark.vue";
 import { defineModel } from "vue";
 
 const model = defineModel();
@@ -15,8 +20,8 @@ const model = defineModel();
 .toggle {
   position: relative;
   display: inline-block;
-  width: 64px;
-  height: 36px;
+  width: 52px;
+  height: 28px;
 }
 
 .toggle input {
@@ -32,7 +37,7 @@ const model = defineModel();
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--highlight-light);
+  background-color: var(--faded-light);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -40,27 +45,34 @@ const model = defineModel();
 .slider:before {
   position: absolute;
   content: "";
-  height: 28px;
-  width: 28px;
+  height: 20px;
+  width: 20px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
+body.light .slider:before {
+  background-color: var(--background-light);
+}
+
+body.dark .slider:before {
+  background-color: var(--background-dark);
+}
+
 input:checked + .slider {
-  background-color: var(--highlight-dark);
+  background-color: var(--faded-dark);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px var(--highlight-dark);
+  box-shadow: 0 0 1px var(--faded-dark);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(28px);
-  -ms-transform: translateX(28px);
-  transform: translateX(28px);
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
 }
 
 .slider.round {

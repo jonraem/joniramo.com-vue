@@ -35,8 +35,8 @@ watch(isDarkTheme, (newValue) => {
 
 .toggle {
   position: absolute;
-  top: 2rem;
-  right: 3rem;
+  top: 1rem;
+  right: 2rem;
 }
 
 @keyframes fadeIn {
