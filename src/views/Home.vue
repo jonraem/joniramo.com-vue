@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <img
-      @load="fadeIn"
       class="profile-image"
       alt="Image of Joni"
       src="../assets/jr_logo.svg"
@@ -19,7 +18,6 @@
 
 <script setup lang="ts">
 import SocialLinks from "../components/SocialLinks.vue";
-import { fadeIn } from "../utils/animations";
 
 const yearsOfExperience = new Date().getUTCFullYear() - 2017;
 </script>

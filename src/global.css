@@ -1,0 +1,79 @@
+/* Variables */
+body {
+  --background-light: #fff;
+  --background-dark: #2f313f;
+  --text-light: #000;
+  --text-dark: #fff;
+  --highlight-light: #ff407b;
+  --highlight-dark: #1af1ff;
+  --meta-light: #aaa;
+  --meta-dark: #aaa;
+}
+
+/* Global styles */
+a {
+  text-decoration: none;
+  transition: 0.2s color ease-in-out;
+  transition: 0.2s background ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  line-height: 1.25em;
+  text-transform: uppercase;
+}
+
+/* Theme styles */
+body.light {
+  background-color: var(--background-light);
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li {
+    color: var(--text-light);
+  }
+
+  a,
+  a:active {
+    color: var(--highlight-light);
+  }
+
+  a:hover {
+    color: var(--background-light);
+    background: var(--highlight-light);
+  }
+}
+
+body.dark {
+  background-color: var(--background-dark);
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li {
+    color: var(--text-dark);
+  }
+
+  a,
+  a:active {
+    color: var(--highlight-dark);
+  }
+
+  a:hover {
+    color: var(--background-dark);
+    background: var(--highlight-dark);
+  }
+}

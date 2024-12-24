@@ -84,7 +84,7 @@ fadeIn();
 }
 
 h6 {
-  color: #aaa;
+  color: var(--meta-light);
 }
 
 @media only screen and (max-width: 768px) {

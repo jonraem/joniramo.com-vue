@@ -1,10 +1,30 @@
 <template>
+  <Toggle v-model="isDarkTheme" />
   <router-view />
 </template>
 
+<script setup lang="ts">
+import { ref, onMounted, watch } from "vue";
+import Toggle from "./components/Toggle.vue";
+import "./global.css";
+
+onMounted(() => {
+  document.documentElement.lang = "en";
+  document.body.className = "light";
+});
+
+const isDarkTheme = ref(false);
+watch(isDarkTheme, (newValue) => {
+  if (newValue) {
+    document.body.className = "dark";
+  } else {
+    document.body.className = "light";
+  }
+});
+</script>
+
 <style>
 #app {
-  opacity: 0;
   margin-top: 15vh;
   font-family: "PT Mono", monospace;
   -webkit-font-smoothing: antialiased;
@@ -13,37 +33,10 @@
   line-height: 1.5em;
 }
 
-#app.visible {
-  animation: fadeIn 1s;
-  opacity: 1;
-}
-
-a {
-  text-decoration: none;
-  transition: 0.2s color ease-in-out;
-  transition: 0.2s background ease-in-out;
-}
-
-a,
-a:active {
-  color: #ff407b;
-}
-
-a:hover {
-  color: #fff;
-  background: #ff407b;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  line-height: 1.25em;
-  text-transform: uppercase;
+.toggle {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
 }
 
 @keyframes fadeIn {
