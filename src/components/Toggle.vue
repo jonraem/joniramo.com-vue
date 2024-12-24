@@ -38,8 +38,8 @@ const model = defineModel();
   right: 0;
   bottom: 0;
   background-color: var(--faded-light);
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .slider:before {
@@ -49,8 +49,8 @@ const model = defineModel();
   width: 20px;
   left: 4px;
   bottom: 4px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 body.light .slider:before {
