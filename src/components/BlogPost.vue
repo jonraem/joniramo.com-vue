@@ -124,6 +124,7 @@ fadeIn();
   flex-direction: column;
   margin: 0 auto 10rem;
   max-width: 45em;
+  word-break: break-word;
 }
 
 .tagline {
