@@ -11,7 +11,6 @@
 <script setup lang="ts">
 import ToggleIconLight from "./ToggleIconLight.vue";
 import ToggleIconDark from "./ToggleIconDark.vue";
-import { defineModel } from "vue";
 
 const model = defineModel();
 </script>
@@ -62,15 +61,15 @@ body.dark .slider:before {
   background-color: var(--background-dark);
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: var(--faded-dark);
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px var(--faded-dark);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
