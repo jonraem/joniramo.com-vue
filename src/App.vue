@@ -10,18 +10,28 @@ import { ref, onMounted, watch } from "vue";
 import Toggle from "./components/Toggle.vue";
 import "./global.css";
 
+const DARK_THEME_KEY = "darkTheme";
+
+// Get dark theme from localStorage
+const getDarkTheme = (): boolean =>
+  localStorage.getItem(DARK_THEME_KEY) === "true";
+const isDarkTheme = ref(getDarkTheme());
+
+// Apply theme to body
+const applyTheme = (isDark: boolean) => {
+  document.body.className = isDark ? "dark" : "light";
+};
+
 onMounted(() => {
   document.documentElement.lang = "en";
-  document.body.className = "light";
+  applyTheme(isDarkTheme.value);
+  localStorage.setItem(DARK_THEME_KEY, String(isDarkTheme.value));
 });
 
-const isDarkTheme = ref(false);
+// If theme is toggled, apply and save to localStorage
 watch(isDarkTheme, (newValue) => {
-  if (newValue) {
-    document.body.className = "dark";
-  } else {
-    document.body.className = "light";
-  }
+  applyTheme(newValue);
+  localStorage.setItem(DARK_THEME_KEY, String(newValue));
 });
 </script>
 
