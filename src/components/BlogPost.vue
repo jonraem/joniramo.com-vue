@@ -16,7 +16,7 @@
       <img
         alt="Irrelevant header image for blog post"
         v-if="post.image"
-        :src="getImageUrl(post.image).width(480).url()"
+        :src="getImageUrl(post.image).width(1080).url()"
       />
 
       <p class="tagline">
@@ -86,7 +86,7 @@ const components: PortableTextComponents = {
     },
     image: ({ value }: { value: ImageNode }) =>
       h("img", {
-        src: value.asset ? getImageUrl(value.asset).width(480).url() : "",
+        src: value.asset ? getImageUrl(value.asset).width(1080).url() : "",
         alt: value.alt || "Somewhat relevant blog post image",
         style: "width: 100%;",
       }),
