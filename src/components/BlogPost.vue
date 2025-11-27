@@ -88,6 +88,7 @@ const components: PortableTextComponents = {
       h("img", {
         src: value.asset ? getImageUrl(value.asset).width(480).url() : "",
         alt: value.alt || "Somewhat relevant blog post image",
+        style: "width: 100%;",
       }),
   },
 };
