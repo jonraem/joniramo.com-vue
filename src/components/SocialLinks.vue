@@ -13,6 +13,9 @@
         >
       </li>
       <li>
+        <a href="https://bsky.app/profile/joniramo.dev">Bluesky</a>
+      </li>
+      <li>
         <a href="mailto:joni.ramo.91+hello@gmail.com">Email</a>
       </li>
       <li></li>
