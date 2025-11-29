@@ -14,7 +14,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  transition: 0.4s background-color;
+  transition: 0.2s background-color;
 }
 
 /* Global styles */
@@ -48,6 +48,11 @@ pre {
   line-height: 1.5em;
 }
 
+button {
+  font-family: "PT Mono", monospace;
+  transition: 0.2s background-color;
+}
+
 /* Theme styles */
 body.light {
   background-color: var(--background-light);
@@ -58,7 +63,8 @@ body.light {
   h3,
   h4,
   h5,
-  li {
+  li,
+  button {
     color: var(--text-light);
   }
 
@@ -75,6 +81,20 @@ body.light {
   .logo path {
     fill: var(--highlight-light);
   }
+
+  .categories {
+    color: var(--text-light);
+  }
+
+  button.category:hover {
+    color: var(--text-dark);
+    background-color: var(--meta-dark);
+  } 
+
+  button.category.active {
+    color: var(--text-dark);
+    background-color: var(--highlight-light);
+  }
 }
 
 body.dark {
@@ -86,7 +106,8 @@ body.dark {
   h3,
   h4,
   h5,
-  li {
+  li,
+  button {
     color: var(--text-dark);
   }
 
@@ -102,5 +123,19 @@ body.dark {
 
   .logo path {
     fill: var(--highlight-dark);
+  }
+
+  .categories {
+    color: var(--text-dark);
+  }
+
+  button.category:hover {
+    color: var(--text-light);
+    background-color: var(--meta-light);
+  }
+
+  .categories button.active {
+    color: var(--text-light);
+    background-color: var(--highlight-dark);
   }
 }

@@ -1,11 +1,15 @@
 import { Post } from "../types";
 
-export const getDateStringFromPublishedAt = (
-  publishedAt: string | undefined
-) => {
+export const getDateTimeString = (publishedAt: string | undefined) => {
   if (!publishedAt) return "some point in time";
   const publishedAtDate = new Date(publishedAt);
   return `${publishedAtDate.toLocaleDateString()}, ${publishedAtDate.toLocaleTimeString()}`;
+};
+
+export const getDateString = (publishedAt: string | undefined) => {
+  if (!publishedAt) return "";
+  const publishedAtDate = new Date(publishedAt);
+  return publishedAtDate.toLocaleDateString();
 };
 
 export const sortAscendingByPublishedAt = (a: Post, b: Post) =>

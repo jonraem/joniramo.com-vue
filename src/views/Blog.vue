@@ -4,6 +4,17 @@
 
     <h1>Blog</h1>
 
+    <div class="categories">
+      Categories:
+      <button
+        v-for="category in categories"
+        :class="{ category, active: category._id === selectedCategoryId }"
+        @click="() => handleCategoryClick(category._id)"
+      >
+        {{ hashtagify(category.title) }}
+      </button>
+    </div>
+
     <div class="posts">
       <p v-if="loading" class="loading">Loading...</p>
       <p v-if="error" class="error">
@@ -11,15 +22,20 @@
         There doesn't seem to be anything here 🤔
       </p>
 
-      <div v-for="post in posts" class="post" :key="post._id">
+      <div v-for="post in filteredPosts" class="post" :key="post._id">
+        <div class="tags">
+          <span v-for="category in post.categories">{{
+            hashtagify(category.title)
+          }}</span>
+        </div>
         <h2>
           <router-link :to="`/blog/${post.slug.current}`">
             {{ post.title }}
           </router-link>
         </h2>
-        <p class="tagline">
-          Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}
-        </p>
+        <span class="tagline">
+          {{ getDateString(post.publishedAt) }}
+        </span>
         <hr />
       </div>
     </div>
@@ -27,34 +43,45 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import type { Ref } from "vue";
 
 import sanity from "../client";
-import type { Post } from "../types";
+import type { Category, Post } from "../types";
 import { fadeIn } from "../utils/animations";
-import {
-  getDateStringFromPublishedAt,
-  sortAscendingByPublishedAt,
-} from "../utils/dates";
+import { getDateString, sortAscendingByPublishedAt } from "../utils/dates";
+import { hashtagify } from "../utils/string";
 
-const loading = ref(false);
+const loading: Ref<boolean> = ref(false);
 const error: Ref<string | null> = ref(null);
+const selectedCategoryId: Ref<string | null> = ref(null);
+const categories: Ref<Category[]> = ref([]);
 const posts: Ref<Post[]> = ref([]);
 
-const query = `*[_type == "post"]{
+const categoryQuery = `*[_type == "category"]{
+  _id,
+  title,
+}[0...25]`;
+const postQuery = `*[_type == "post"]{
   _id,
   title,
   slug,
+  categories[]->{
+    _id,
+    title
+  },
   publishedAt
 }[0...25]`;
 
 function fetchData() {
   loading.value = true;
-  sanity.fetch(query).then(
-    (data) => {
+  error.value = null;
+
+  Promise.all([sanity.fetch(categoryQuery), sanity.fetch(postQuery)]).then(
+    ([categoryData, postData]) => {
+      categories.value = categoryData;
+      posts.value = postData.sort(sortAscendingByPublishedAt);
       loading.value = false;
-      posts.value = data.sort(sortAscendingByPublishedAt);
     },
     (err) => {
       error.value = JSON.stringify(err);
@@ -62,6 +89,24 @@ function fetchData() {
     }
   );
 }
+
+const filteredPosts = computed(() => {
+  if (!selectedCategoryId.value) {
+    return posts.value;
+  }
+
+  return posts.value.filter((post) =>
+    post.categories?.some((c: Category) => c._id === selectedCategoryId.value)
+  );
+});
+
+const handleCategoryClick = (id: string) => {
+  if (id === selectedCategoryId.value) {
+    selectedCategoryId.value = null;
+  } else {
+    selectedCategoryId.value = id;
+  }
+};
 
 fetchData();
 fadeIn();
@@ -80,6 +125,22 @@ fadeIn();
   align-self: flex-start;
 }
 
+.categories {
+  display: flex;
+  font-size: 16px;
+  gap: 1rem;
+}
+
+button.category {
+  border: 1px solid var(--meta-light);
+  background: transparent;
+  cursor: pointer;
+}
+
+button.category:hover {
+  background: var(--meta-dark);
+}
+
 .posts {
   margin: 0 auto;
   max-width: 45em;
@@ -88,12 +149,17 @@ fadeIn();
 
 .post {
   box-sizing: border-box;
+  margin-top: 3rem;
+
+  h2 {
+    margin: 0.5rem 0;
+  }
 }
 
+.tags,
 .tagline {
-  font-size: 0.8rem;
   color: var(--meta-light);
-  margin: 0 0 1rem;
+  gap: 0.5rem;
 }
 
 @media only screen and (max-width: 768px) {

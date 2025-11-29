@@ -19,7 +19,7 @@
       />
 
       <p class="tagline">
-        Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}
+        Published at {{ getDateTimeString(post.publishedAt) }}
       </p>
       <PortableText :value="blocks" :components="components" />
     </div>
@@ -37,7 +37,7 @@ import { useRoute } from "vue-router";
 
 import sanity from "../client";
 import { fadeIn } from "../utils/animations";
-import { getDateStringFromPublishedAt } from "../utils/dates";
+import { getDateTimeString } from "../utils/dates";
 import type { Post } from "../types";
 
 const loading = ref(false);
