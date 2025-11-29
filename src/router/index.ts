@@ -12,13 +12,18 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/blog",
-    name: "Blog",
-    component: Blog,
-  },
-  {
-    path: "/blog/:slug",
-    name: "BlogPost",
-    component: BlogPost,
+    children: [
+      {
+        path: "",
+        name: "Blog",
+        component: Blog,
+      },
+      {
+        path: "/blog/:slug",
+        name: "BlogPost",
+        component: BlogPost,
+      },
+    ],
   },
 ];
 

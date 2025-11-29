@@ -42,6 +42,7 @@ nav a {
   font-size: 0.875rem;
 }
 
+nav a.router-link-active,
 nav a.router-link-exact-active {
   text-decoration: underline;
   text-decoration-thickness: 2px;
