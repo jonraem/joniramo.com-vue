@@ -1,0 +1,43 @@
+<template>
+  <header>
+    <Logo />
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/blog">Blog</router-link>
+    </nav>
+    <ThemeToggle />
+  </header>
+</template>
+
+<script setup lang="ts">
+import Logo from "./Logo.vue";
+import ThemeToggle from "./ThemeToggle.vue";
+</script>
+
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.logo {
+  width: 2rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+nav a {
+  font-size: 0.875rem;
+}
+</style>

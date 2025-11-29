@@ -1,25 +1,49 @@
 <template>
   <label class="toggle">
-    <input type="checkbox" v-model="model" />
+    <input
+      type="checkbox"
+      :checked="isDarkTheme"
+      @change="isDarkTheme = ($event.target as HTMLInputElement).checked"
+    />
     <span class="slider round">
-      <ToggleIconLight v-if="!model" />
-      <ToggleIconDark v-if="model" />
+      <ToggleIconLight v-if="!isDarkTheme" />
+      <ToggleIconDark v-if="isDarkTheme" />
     </span>
   </label>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, watch } from "vue";
 import ToggleIconLight from "./ToggleIconLight.vue";
 import ToggleIconDark from "./ToggleIconDark.vue";
 
-const model = defineModel();
+const DARK_THEME_KEY = "darkTheme";
+
+// Get dark theme from localStorage
+const getDarkTheme = (): boolean =>
+  localStorage.getItem(DARK_THEME_KEY) === "true";
+const isDarkTheme = ref(getDarkTheme());
+
+// Apply theme to body
+const applyTheme = (isDark: boolean) => {
+  document.body.className = isDark ? "dark" : "light";
+};
+
+onMounted(() => {
+  applyTheme(isDarkTheme.value);
+  localStorage.setItem(DARK_THEME_KEY, String(isDarkTheme.value));
+});
+
+// If theme is toggled, apply and save to localStorage
+watch(isDarkTheme, (newValue) => {
+  applyTheme(newValue);
+  localStorage.setItem(DARK_THEME_KEY, String(newValue));
+});
 </script>
 
 <style>
 .toggle {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
+  position: relative;
   width: 52px;
   height: 28px;
 }
@@ -61,15 +85,15 @@ body.dark .slider:before {
   background-color: var(--background-dark);
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: var(--faded-dark);
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px var(--faded-dark);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);

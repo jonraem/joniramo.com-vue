@@ -1,20 +1,16 @@
 <template>
   <div class="home">
-    <Logo />
     <h1>Joni Rämö</h1>
     <p>
-      Experienced software developer with more than
-      {{ yearsOfExperience }} years of experience developing tailored web and
-      mobile applications, primarily using JavaScript/TypeScript.
+      Software developer with +{{ yearsOfExperience }} years of experience
+      developing tailored web and mobile applications, primarily using
+      JavaScript/TypeScript.
     </p>
-    <router-link to="/blog">Blog</router-link>
   </div>
 </template>
 
 <script setup lang="ts">
-import Logo from "../components/Logo.vue";
-
-const yearsOfExperience = new Date().getUTCFullYear() - 2017;
+const yearsOfExperience = new Date().getUTCFullYear() - 2016;
 </script>
 
 <style scoped>
