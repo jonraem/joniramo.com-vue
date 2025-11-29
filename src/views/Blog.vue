@@ -4,7 +4,15 @@
 
     <h1>Blog</h1>
 
-    <div class="categories">
+    <p v-if="loading" class="loading">
+      <LoadingIcon />
+    </p>
+    <p v-if="error" class="error">
+      <!-- {{ error }} -->
+      Something went wrong 😰
+    </p>
+
+    <div v-if="categories.length" class="categories">
       Categories:
       <button
         v-for="category in categories"
@@ -15,13 +23,7 @@
       </button>
     </div>
 
-    <div class="posts">
-      <p v-if="loading" class="loading">Loading...</p>
-      <p v-if="error" class="error">
-        <!-- {{ error }} -->
-        There doesn't seem to be anything here 🤔
-      </p>
-
+    <div v-if="posts.length" class="posts">
       <div v-for="post in filteredPosts" class="post" :key="post._id">
         <div class="tags">
           <span v-for="category in post.categories">{{
@@ -47,6 +49,7 @@ import { ref, computed } from "vue";
 import type { Ref } from "vue";
 
 import sanity from "../client";
+import LoadingIcon from "../components/LoadingIcon.vue";
 import type { Category, Post } from "../types";
 import { fadeIn } from "../utils/animations";
 import { getDateString, sortAscendingByPublishedAt } from "../utils/dates";

@@ -4,7 +4,9 @@
       {{ "<< go back" }}
     </router-link>
 
-    <p v-if="loading" class="loading">Loading...</p>
+    <p v-if="loading" class="loading">
+      <LoadingIcon />
+    </p>
     <p v-if="error" class="error">
       <!-- {{ error }} -->
       There doesn't seem to be anything here 🤔
@@ -36,6 +38,7 @@ import type { Ref } from "vue";
 import { useRoute } from "vue-router";
 
 import sanity from "../client";
+import LoadingIcon from "./LoadingIcon.vue";
 import { fadeIn } from "../utils/animations";
 import { getDateTimeString } from "../utils/dates";
 import type { Post } from "../types";
