@@ -3,11 +3,13 @@
   <main>
     <router-view />
   </main>
+  <Footer />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
 import Toggle from "./components/Toggle.vue";
+import Footer from "./components/Footer.vue";
 import "./global.css";
 
 const DARK_THEME_KEY = "darkTheme";
@@ -37,7 +39,9 @@ watch(isDarkTheme, (newValue) => {
 
 <style>
 main {
-  padding: 20vh 1rem 0;
+  padding: 6rem 1rem;
+  min-height: calc(100vh - 7rem);
+  box-sizing: border-box;
 }
 
 @keyframes fadeIn {

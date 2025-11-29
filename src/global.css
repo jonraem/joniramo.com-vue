@@ -44,7 +44,7 @@ pre {
   font-family: "PT Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   line-height: 1.5em;
 }
 

@@ -18,14 +18,19 @@
       <li>
         <a href="mailto:joni.ramo.91+hello@gmail.com">Email</a>
       </li>
-      <li></li>
     </ul>
   </div>
 </template>
 
 <style scoped>
-.social-links ul {
+ul {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
+}
+
+li {
+  margin-right: 2rem;
 }
 </style>

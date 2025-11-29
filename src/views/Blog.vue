@@ -1,25 +1,26 @@
 <template>
   <div class="blog">
-    <router-link to="/">{{ "<< go back" }}</router-link>
+    <router-link class="back" to="/">{{ "<< go back" }}</router-link>
+
     <h1>Blog</h1>
+
     <div class="posts">
-      <p class="loading" v-if="loading">Loading...</p>
+      <p v-if="loading" class="loading">Loading...</p>
       <p v-if="error" class="error">
         <!-- {{ error }} -->
         There doesn't seem to be anything here 🤔
       </p>
-      <div class="post-container">
-        <div v-for="post in posts" class="post-item" :key="post._id">
-          <h2>
-            <router-link :to="`/blog/${post.slug.current}`">
-              {{ post.title }}
-            </router-link>
-          </h2>
-          <p class="tagline">
-            Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}
-          </p>
-          <hr />
-        </div>
+
+      <div v-for="post in posts" class="post" :key="post._id">
+        <h2>
+          <router-link :to="`/blog/${post.slug.current}`">
+            {{ post.title }}
+          </router-link>
+        </h2>
+        <p class="tagline">
+          Published at {{ getDateStringFromPublishedAt(post.publishedAt) }}
+        </p>
+        <hr />
       </div>
     </div>
   </div>
@@ -68,9 +69,15 @@ fadeIn();
 
 <style scoped>
 .blog {
+  display: flex;
+  flex-direction: column;
   max-width: 45rem;
   margin: 0 auto;
   text-align: left;
+}
+
+.back {
+  align-self: flex-start;
 }
 
 .posts {
@@ -79,7 +86,7 @@ fadeIn();
   width: 100%;
 }
 
-.post-item {
+.post {
   box-sizing: border-box;
 }
 

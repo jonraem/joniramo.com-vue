@@ -1,11 +1,10 @@
 <template>
   <div class="blog-post">
-    <router-link to="/blog" style="align-self: flex-start">
+    <router-link class="back" to="/blog">
       {{ "<< go back" }}
     </router-link>
 
-    <p class="loading" v-if="loading">Loading...</p>
-
+    <p v-if="loading" class="loading">Loading...</p>
     <p v-if="error" class="error">
       <!-- {{ error }} -->
       There doesn't seem to be anything here 🤔
@@ -123,9 +122,13 @@ fadeIn();
   text-align: left;
   display: flex;
   flex-direction: column;
-  margin: 0 auto 10rem;
+  margin: 0 auto;
   max-width: 45em;
   word-break: break-word;
+}
+
+.back {
+  align-self: flex-start;
 }
 
 .tagline {
