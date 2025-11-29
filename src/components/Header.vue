@@ -26,6 +26,7 @@ header {
 }
 
 .logo {
+  height: 2rem;
   width: 2rem;
 }
 
@@ -39,5 +40,10 @@ nav {
 
 nav a {
   font-size: 0.875rem;
+}
+
+nav a.router-link-exact-active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 </style>
