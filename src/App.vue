@@ -20,7 +20,7 @@ onMounted(() => {
 <style>
 main {
   padding: 6rem 1rem;
-  min-height: calc(100vh - 7rem);
+  min-height: calc(100vh - 13rem);
   box-sizing: border-box;
 }
 

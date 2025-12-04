@@ -1,10 +1,28 @@
 <template>
   <div class="home">
-    <h1>Joni Rämö</h1>
+    <h1>Welcome</h1>
     <p>
-      Software developer with +{{ yearsOfExperience }} years of experience
-      developing tailored web and mobile applications, primarily using
-      JavaScript/TypeScript.
+      You have discovered the website of Joni Rämö, a software developer with
+      +{{ yearsOfExperience }} years of experience in various projects around
+      the web.
+
+      <br />
+      <br />
+
+      On this website you will find references of my software development
+      ventures and my <router-link to="/blog">blog</router-link> where I discuss
+      various technical and non-techical topics. If you have an interesting
+      project where I may help you, or if you just want to say hello, send me a
+      message!
+
+      <br />
+      <br />
+
+      <img
+        alt="Picture of Joni Rämö"
+        src="../assets/joni-ramo-circle.png"
+        loading="lazy"
+      />
     </p>
   </div>
 </template>
@@ -19,7 +37,8 @@ const yearsOfExperience = new Date().getUTCFullYear() - 2016;
   margin: 0 auto;
 }
 
-p {
-  margin-bottom: 2rem;
+img {
+  width: 7rem;
+  height: 7rem;
 }
 </style>
