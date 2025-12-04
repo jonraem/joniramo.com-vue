@@ -21,7 +21,7 @@
       <img
         alt="Picture of Joni Rämö"
         src="../assets/joni-ramo-circle.png"
-        loading="lazy"
+        loading="eager"
       />
     </p>
   </div>
