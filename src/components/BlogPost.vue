@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText, PortableTextComponents } from "@portabletext/vue";
+import DOMPurify from "dompurify";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 import { h, ref } from "vue";
@@ -83,7 +84,7 @@ const components: PortableTextComponents = {
       const highlightedCode = hljs.highlightAuto(value.code).value;
 
       return h("pre", { class: "hljs", style: "padding: 1rem;" }, [
-        h("code", { innerHTML: highlightedCode }),
+        h("code", { innerHTML: DOMPurify.sanitize(highlightedCode) }),
       ]);
     },
     image: ({ value }: { value: ImageNode }) =>
